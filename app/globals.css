@@ -1,0 +1,8 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
+  background: #f4f6fb;
+  color: #1a1a2e;
+}
+button { font-family: inherit; }
+input, select, textarea { font-family: inherit; }
