@@ -8,8 +8,6 @@ import Attendance from '@/components/Attendance'
 import Development from '@/components/Development'
 import Reports from '@/components/Reports'
 
-const CENTER_NAME = process.env.NEXT_PUBLIC_CENTER_NAME || 'ศูนย์พัฒนาเด็กเล็กตำบลเหมืองจี้'
-
 export default function Home() {
   const [page,    setPage]    = useState('dashboard')
   const [center,  setCenter]  = useState<any>(null)
@@ -20,7 +18,8 @@ export default function Home() {
     supabase
       .from('centers')
       .select('*')
-      .eq('name', CENTER_NAME)
+      .eq('status', 'active')
+      .order('created_at', { ascending: true })
       .limit(1)
       .then(({ data, error }) => {
         if (error) setError(error.message)
